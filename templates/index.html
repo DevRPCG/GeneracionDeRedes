@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohawk Discount Store Training Program</title>
+</head>
+<body>
+    <h1>Red de Proyecto del Programa de Capacitación</h1>
+    <form method="post">
+        {% for i in range(1, 9) %}
+            <div>
+                <label for="activity{{ i }}">Actividad {{ i }}:</label>
+                <input type="text" id="activity{{ i }}" name="activity{{ i }}" required>
+                <label for="predecessors{{ i }}">Predecesoras (separadas por comas):</label>
+                <input type="text" id="predecessors{{ i }}" name="predecessors{{ i }}">
+            </div>
+        {% endfor %}
+        <button type="submit">Generar Red de Proyecto</button>
+    </form>
+    {% if plot_url %}
+        <h2>Resultado:</h2>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="Project Network">
+    {% endif %}
+</body>
+</html>
